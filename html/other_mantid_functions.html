@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Other Mantid Functions</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="" href="index.html"/>
+        <link rel="next" title="The Basics of Data Reduction" href="basics_of_data_reduction.html"/>
+        <link rel="prev" title="The Tabs" href="the_tabs.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MantidProject
+          
+
+          
+            
+            <img src="_static/Mantid_Logo_Transparent.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.12
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_tabs.html">The Tabs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Other Mantid Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#workspaces">Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-data">Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qtiplot">QtiPlot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overlaying-data">Overlaying Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basics_of_data_reduction.html">The Basics of Data Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MantidProject</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Other Mantid Functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/other_mantid_functions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="other-mantid-functions">
+<span id="id1"></span><h1>Other Mantid Functions<a class="headerlink" href="#other-mantid-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="workspaces">
+<span id="index-0"></span><h2>Workspaces<a class="headerlink" href="#workspaces" title="Permalink to this headline">¶</a></h2>
+<p>Workspaces hold the data in Mantid. They come in several forms, but the most common is
+the Matrix Workspace which represents XYE data for one or more spectra. In MantidPlot the
+data contained in a workspace can viewed as a matrix or a table, and graphed in many ways
+including Line graphs, contour plots and 3D graphs.</p>
+<p>Interaction with workspaces is typically through an interface. Matrix Workspaces are
+typically created by executing one of Mantid&#8217;s &#8216;Load&#8217; algorithms or are the output of
+algorithms which take a Matrix Workspace as input.</p>
+<p>In addition to data, workspaces hold a workspace history, which details the algorithms
+which have been run on this workspace.</p>
+<p>When a muon data set is loaded, the Matrix Workspaces are created automatically. The workspace
+list pane is found on the right-hand side of the main MantidPlot window.</p>
+<p><strong>MuonAnalysis</strong>, holds within it raw positron counts / us for each individual detector.
+To examine the data collected in a single detector, right click on workspace MuonAnalysis and select Plot Spectrum.
+There is one spectrum per detector. In the window that opens up you can enter the number of the spectrum/detector
+that you want to plot; you can also enter a range or plot all spectra.</p>
+<p><strong>MuonAnalysisGrouped</strong> contains data in raw counts / us but collated
+as specified under the Grouping Options tab of the interface.</p>
+<p><strong>NAMENUMBER</strong> a third workspace with a name depending on instrument name and run number is created.
+Within this workspace there are two sub-workspaces, one of them with the suffix RAW. These sub-workspaces
+are also contain the Group in their name, this is the name of the grouping options specified in the
+<em>Grouping Options</em> tab of the interface. RAW contains un-binned raw data.</p>
+<p>In general the muon analysis GUI hides workspaces from the user; however, an
+understanding of their functionality is sometimes useful to take advantage of some of the
+more advanced features of MantidPlot. In particular, for those seeking to develop a
+specialist analysis method, the GUI can be used for the initial data reduction with user
+coded Python or C++ algorithms acting on workspaces to process the final result. This type
+of hybrid workflow demonstrates the versatility of the MantidPlot interface.</p>
+<p>Other types of object, such as Tables, Matrices and Notes, may be created through the
+MantidPlot interface. As these are not workspaces the Algorithms can’t directly be applied.
+However, Tables may be converted the either a Table or Matrix workspace through an
+option on the analysis menu for subsequent data processing. For instance, converting the
+Results Table to a matrix workspace enables MantidPlot fitting the be carried out (however,
+see section III below for an alternative method of analysing results using the QtiPlot fitting).</p>
+</div>
+<div class="section" id="loading-data">
+<h2>Loading Data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h2>
+<p>Matrix Workspaces are typically created by executing one of Mantid&#8217;s &#8216;Load&#8217; algorithms or are
+the output of algorithms which take a Matrix Workspace as input. In addition to data, workspaces
+hold a workspace history which lists the algorithms that have been applied to the data.</p>
+<p>We will load a raw data file WITHOUT USING the Mantid Analysis GUI and examine its content:</p>
+<p>In the MantidPlot ‘Workspaces’ pane (see below) use the LOAD button to import file</p>
+<div class="figure">
+<img alt="_images/LoadWorkspace.png" src="_images/LoadWorkspace.png" />
+</div>
+<p>Click on the ‘arrow’ beside the file name – this allows information about the format of
+data file to be viewed. The following should be seen in the Workspace List pane to
+the right of the screen.</p>
+<p>We find that a workspace called HIFI00062798 is created and ...</p>
+<ul class="simple">
+<li>is a 2D array</li>
+<li>the data has been collected from a silver calibration measurement taken in a transverse field of 20G</li>
+<li>it contains 64 spectra (or histograms i.e. one for each HiFi detector)</li>
+<li>there are 2048 time channels, or bins, per plot</li>
+</ul>
+<p>However, the NeXuS format allows a lot more information be stored in a data file than that listed above. As an example</p>
+<p>right click on the file name and select ‘Sample Logs’. A list of experiment and
+instrument parameters that have been logged during a measurement, from
+magnetic fields to sample temperatures, appears.</p>
+<p>To interrogate any of these logs double click on the ‘Name’.</p>
+<p>Examine Temp_Cryostat – the plot below should appear. Explore other parameter files</p>
+<div class="figure">
+<img alt="_images/TempCrysostat.png" src="_images/TempCrysostat.png" />
+</div>
+<p>As mentioned, since we have simply loaded HIFI00062798.nxs, workspace, HIFI00062798
+holds within it raw positron counts / bin for EACH individual HiFi detector. To examine the
+data collected in a single detector, right click on HIFI00062798 and select Plot Spectrum.</p>
+<p>On HiFi, as way of example, there are 64 detectors hence ID numbers: 1-64 (1-32 =
+upstream detectors, 33-64 = downstream detectors.</p>
+<p>Enter a detector (ID) number of your choice and click OK to plot the associated raw data.</p>
+<p>For information:</p>
+<ul class="simple">
+<li>ARGUS has 192 detectors (usually pre-grouped to 32 histograms in the data analysis software)</li>
+<li>MuSR and HIFI have 64 detectors (usually pre-grouped to 32 histograms in the data analysis software)</li>
+<li>EMu has 96 detectors (usually pre-grouped to 32 histograms in the data analysis software)</li>
+</ul>
+</div>
+<div class="section" id="exporting-data">
+<h2>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">¶</a></h2>
+<p>To export the data contained within any listed workspace click on the Algorithms tab at the bottom of the workspace list pane.
+The SaveAscii dialog is shown below. You can choose which workspace to save, where to save it and how to separate columns in
+the resulting file.</p>
+<div class="figure">
+<a class="screenshot reference internal image-reference" href="_images/SaveAscii_dlg.png"><img alt="_images/SaveAscii_dlg.png" class="screenshot" src="_images/SaveAscii_dlg.png" style="width: 387px;" /></a>
+</div>
+</div>
+<div class="section" id="qtiplot">
+<h2>QtiPlot<a class="headerlink" href="#qtiplot" title="Permalink to this headline">¶</a></h2>
+<p>Enabling QtiPlot allows data sets and workspaces to be analysed using a suite of inbuilt
+Origin fitting algorithms. To enable QtiPlot follow View &gt; Preferences &gt; Fitting. The following
+window should appear. Select Enable QtiPlot Fitting</p>
+<div class="figure">
+<img alt="_images/StartQti.png" src="_images/StartQti.png" />
+</div>
+<p>When QtiPlot fitting has been enabled, and a data file has been loaded, Analysis appears in the list of options above the main MantidPlot window toolbar.</p>
+</div>
+<div class="section" id="overlaying-data">
+<h2>Overlaying Data<a class="headerlink" href="#overlaying-data" title="Permalink to this headline">¶</a></h2>
+<p>To overlay data, select the plot window in which you wish to compare data. Right click on
+the plot window and select Add/Remove Curve. A list of available data sets will appear. As
+an example, below we have the option of adding the data contained in the workspace
+EMU00020886; Group=long; Asym; #1 to the plot window of EMU00020897; Group=long;
+Asym; #1. To do so, first select EMU00020886; Group=long; Asym; #1 in the left hand pane
+and then click the ‘right’ pointing arrow. Reversing this process removes data from a plot
+window. The plot style (line, scatter, line+scatter etc) of the added data set can be selected using the New Curves Style drop
+down menu at the top of the Add/Remove Curve window</p>
+<div class="figure">
+<img alt="_images/AddRemoveData.png" src="_images/AddRemoveData.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basics_of_data_reduction.html" class="btn btn-neutral float-right" title="The Basics of Data Reduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="the_tabs.html" class="btn btn-neutral" title="The Tabs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2018-08-08.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.12.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+      Last updated on 2018-08-08.<br/>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+.. _basics_of_data_reduction:
+
+============================
+The Basics of Data Reduction
+============================
+
+.. index:: The Basics of Data Reduction
+
+This section explains 
+
+* the concept of t\ :sub:`zero`\  and t\ :sub:`good`\ 
+* the concept of dead time correction
+* how to set the detector calibration factor, 
+* how to group data
+
+NOTE: detailed information about functionality contained under the Mantid Analysis GUI TABS -
+Home, Grouping Options, Settings, Data Analysis and Results Table – will be referred to and can be
+found in the hand-out Mantid 4 muons.
+
+NOTE: from now on we will load data using the Muon Analysis interface
+
+The concept of t\ :sub:`zero`\  and t\ :sub:`good`\
+===================================================
+
+Although the timing origin for the muon response in the sample is when the middle of the
+muon pulse has reached the sample, the good data region is not obtained until the entire
+pulse has arrived at the sample. This time is defined as t\ :sub:`good`\ . t\ :sub:`zero`\  on the 
+other hand is the time at which the middle of the muon pulse reaching the sample. The difference 
+between t\ :sub:`good`\  and t\ :sub:`zero`\  is t\ :sub:`good offset`\ .
+
+When using the Muon Analysis GUI, tzero and tgood are loaded from the NeXuS file having
+been determined by the instrument scientist (NB: you will determine tzero from
+experimental data later on) However, for the purpose of demonstration, we will aim to
+broadly determine these parameters from the raw data and see how they compare with the
+GUI entries.
+
+.. figure:: /images/TgoodTzero.png
+
+The concept of dead-time
+========================
+
+After a detector has recorded a positron count there is a small time interval before it is able
+to detect another count. It is possible, especially at the high data collection rates now
+available on the muon instruments, that a positron will arrive within this interval and not be
+recorded. Statistical analysis can be used to correct for this. A silver sample is used to
+determine dead time values for each detector, the results of which are made into a dead
+time data file. The NeXuS format stores this data internally. For further information about
+the correction of detector deadtime see: Kilcoyne, RAL report RAL-94-080 (1994).
+
+To explore the effect of dead time:
+
+* Load data file EMU00034998.nxs. Make sure ‘none’ is selected for Dead Time Correction
+* Reload the data file but select “From Data File”. What happens?
+* Create a plot to show the effect.
+
+The detector calibration factor alpha
+=====================================
+
+The detector calibration factor, alpha can be determined for any given detector pairing by
+clicking on Guess Alpha (Grouping Options) and analysis of transverse field data.
+
+
+* Using the GUI, load transverse field measurement MUSR00024563.nxs
+* Select the Grouping Options TAB
+* Notice that when you load a data file using the GUI, the default option for the
+  MuSR spectrometer is to GROUP (or add) all data in detectors 1-32 (a group
+  of detectors referred to as BCK) together. Similarly, data in detectors 33-64 (a
+  group called FWD) is summed.
+* To generate alpha click on Guess Alpha.
+* Reload the data file. What has happened?
+* You can rename groups fwd and/or bck and/or change the detectors to be summed. 
+  Alternatively you can create additional grouping options
+* In the Group Table, create two new grouping options with names of your
+  choice that add every 5th detector (i.e. 33,38,43 ... )
+* Below ‘long’ enter a new Group Pair name for this new grouping option.
+* Click ‘Guess Alpha’.
+* Reload the data file BUT before you do choose your new Group Pairing option from
+  the Group / Group Pairing drop down list. What do you notice about alpha?
+
+
+

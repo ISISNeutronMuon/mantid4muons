@@ -1,0 +1,141 @@
+.. _other_mantid_functions:
+
+======================
+Other Mantid Functions
+======================
+
+.. index:: Other Mantid Functions
+
+Workspaces
+==========
+
+Workspaces hold the data in Mantid. They come in several forms, but the most common is
+the Matrix Workspace which represents XYE data for one or more spectra. In MantidPlot the
+data contained in a workspace can viewed as a matrix or a table, and graphed in many ways
+including Line graphs, contour plots and 3D graphs.
+
+Interaction with workspaces is typically through an interface. Matrix Workspaces are
+typically created by executing one of Mantid's 'Load' algorithms or are the output of
+algorithms which take a Matrix Workspace as input.
+
+In addition to data, workspaces hold a workspace history, which details the algorithms
+which have been run on this workspace.
+
+When a muon data set is loaded, the Matrix Workspaces are created automatically. The workspace 
+list pane is found on the right-hand side of the main MantidPlot window.
+
+**MuonAnalysis**, holds within it raw positron counts / us for each individual detector.
+To examine the data collected in a single detector, right click on workspace MuonAnalysis and select Plot Spectrum.
+There is one spectrum per detector. In the window that opens up you can enter the number of the spectrum/detector
+that you want to plot; you can also enter a range or plot all spectra.
+
+**MuonAnalysisGrouped** contains data in raw counts / us but collated 
+as specified under the Grouping Options tab of the interface.
+
+**NAMENUMBER** a third workspace with a name depending on instrument name and run number is created.
+Within this workspace there are two sub-workspaces, one of them with the suffix RAW. These sub-workspaces
+are also contain the Group in their name, this is the name of the grouping options specified in the 
+*Grouping Options* tab of the interface. RAW contains un-binned raw data.
+
+In general the muon analysis GUI hides workspaces from the user; however, an
+understanding of their functionality is sometimes useful to take advantage of some of the
+more advanced features of MantidPlot. In particular, for those seeking to develop a
+specialist analysis method, the GUI can be used for the initial data reduction with user
+coded Python or C++ algorithms acting on workspaces to process the final result. This type
+of hybrid workflow demonstrates the versatility of the MantidPlot interface.
+
+Other types of object, such as Tables, Matrices and Notes, may be created through the
+MantidPlot interface. As these are not workspaces the Algorithms can’t directly be applied.
+However, Tables may be converted the either a Table or Matrix workspace through an
+option on the analysis menu for subsequent data processing. For instance, converting the
+Results Table to a matrix workspace enables MantidPlot fitting the be carried out (however,
+see section III below for an alternative method of analysing results using the QtiPlot fitting).
+
+Loading Data
+============
+
+Matrix Workspaces are typically created by executing one of Mantid's 'Load' algorithms or are 
+the output of algorithms which take a Matrix Workspace as input. In addition to data, workspaces 
+hold a workspace history which lists the algorithms that have been applied to the data.
+
+We will load a raw data file WITHOUT USING the Mantid Analysis GUI and examine its content:
+
+In the MantidPlot ‘Workspaces’ pane (see below) use the LOAD button to import file
+
+.. figure:: /images/LoadWorkspace.png
+
+Click on the ‘arrow’ beside the file name – this allows information about the format of
+data file to be viewed. The following should be seen in the Workspace List pane to
+the right of the screen.
+
+We find that a workspace called HIFI00062798 is created and ...
+
+* is a 2D array
+* the data has been collected from a silver calibration measurement taken in a transverse field of 20G
+* it contains 64 spectra (or histograms i.e. one for each HiFi detector)
+* there are 2048 time channels, or bins, per plot
+
+However, the NeXuS format allows a lot more information be stored in a data file than that listed above. As an example
+
+right click on the file name and select ‘Sample Logs’. A list of experiment and
+instrument parameters that have been logged during a measurement, from
+magnetic fields to sample temperatures, appears.
+
+To interrogate any of these logs double click on the ‘Name’.
+
+Examine Temp_Cryostat – the plot below should appear. Explore other parameter files
+
+.. figure:: /images/TempCrysostat.png
+
+As mentioned, since we have simply loaded HIFI00062798.nxs, workspace, HIFI00062798
+holds within it raw positron counts / bin for EACH individual HiFi detector. To examine the
+data collected in a single detector, right click on HIFI00062798 and select Plot Spectrum.
+
+On HiFi, as way of example, there are 64 detectors hence ID numbers: 1-64 (1-32 =
+upstream detectors, 33-64 = downstream detectors.
+
+Enter a detector (ID) number of your choice and click OK to plot the associated raw data.
+
+
+For information:
+
+* ARGUS has 192 detectors (usually pre-grouped to 32 histograms in the data analysis software)
+* MuSR and HIFI have 64 detectors (usually pre-grouped to 32 histograms in the data analysis software)
+* EMu has 96 detectors (usually pre-grouped to 32 histograms in the data analysis software)
+Exporting Data
+==============
+
+To export the data contained within any listed workspace click on the Algorithms tab at the bottom of the workspace list pane.
+The SaveAscii dialog is shown below. You can choose which workspace to save, where to save it and how to separate columns in 
+the resulting file.
+
+.. algorithm_image:: SaveAscii
+
+
+QtiPlot
+=======
+
+Enabling QtiPlot allows data sets and workspaces to be analysed using a suite of inbuilt
+Origin fitting algorithms. To enable QtiPlot follow View > Preferences > Fitting. The following
+window should appear. Select Enable QtiPlot Fitting
+
+.. figure:: /images/StartQti.png
+
+When QtiPlot fitting has been enabled, and a data file has been loaded, Analysis appears in the list of options above the main MantidPlot window toolbar.
+
+
+Overlaying Data
+===============
+
+To overlay data, select the plot window in which you wish to compare data. Right click on
+the plot window and select Add/Remove Curve. A list of available data sets will appear. As
+an example, below we have the option of adding the data contained in the workspace
+EMU00020886; Group=long; Asym; #1 to the plot window of EMU00020897; Group=long;
+Asym; #1. To do so, first select EMU00020886; Group=long; Asym; #1 in the left hand pane
+and then click the ‘right’ pointing arrow. Reversing this process removes data from a plot
+window. The plot style (line, scatter, line+scatter etc) of the added data set can be selected using the New Curves Style drop 
+down menu at the top of the Add/Remove Curve window
+
+.. figure:: /images/AddRemoveData.png
+
+

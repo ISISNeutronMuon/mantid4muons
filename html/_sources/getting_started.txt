@@ -1,0 +1,39 @@
+.. _getting_started:
+
+===============
+Getting Started
+===============
+
+.. index:: Getting Started
+
+To launch the Muon Analysis GUI follow:
+
+Interfaces > Muon Analysis
+
+on the tool bar at the top of the main MantidPlot window.
+
+The window shown in Fig. 1 should appear. A tab-driven approach guides the user through the standard data reduction and analysis procedure. The functionality contained within each tab (Home, Grouping Options, Settings, Data Analysis, Results Table) is discussed in turn. The data used in this manual can be found at:
+
+.. code::
+
+    \\britannic\MuonTrainingCourse\Reference material\Copper\
+
+.. interface:: Muon Analysis
+
+You should ensure that Mantid is configured for your needs. In particular you should:
+
+* Select the default facility and instrument (this will be an option during installation)
+* Enable QtiPlot fitting to allow data sets to be analysed with Origin specific fitting tool. See Other Mantid Functions
+* Add paths to directories which contain your data. 
+
+**Adding paths** To do this, click on Manage Directories (see Fig. 1(a)). The following window (Fig. 1(b)) will appear. As an example, in the window below the directory
+.. code::
+    \\britannic\MuonTrainingCourse\referencematerial\copper\Data 
+	
+has been added as a path by typing the directory name in the field below Data Search Directories and
+then clicking Add Directory. Once a path has been added, data stored in that
+location can be accessed simply by referencing the run number.
+
+.. figure:: /images/MantidQtManageDirectories.jpg
+
+   Figure 1(b) The manage directories window

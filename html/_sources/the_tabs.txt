@@ -1,0 +1,411 @@
+.. _the_tabs:
+
+========
+The Tabs
+========
+
+.. index:: The Tabs
+
+Home
+====
+
+
+When launched, the Muon Analysis GUI defaults to the Home tab. This tab allows: 
+
+* data files to be loaded
+* run information to be viewed
+* detector groupings to be selected
+* type of plot to be selected
+
+To load a file either: **Browse** or **Load Current Run** or simply type a run number (assuming you have defined the directory(ies) in which your files are stored)
+When typing a run number, or using the Load Current Run option, first select the desired instrument from the dropdown list. Regardless of the data input method, the Time Zero (us) and First Good Data (us) 
+values are automatically updated. These values will have been determined by the instrument scientist during instrument calibration periods and are stored in the header block of the NeXus format raw data files that are saved once a measurement is finished. Once a data file has been successfully read, a new plot window will appear (e.g. Fig. 2)
+NB: when browsing for files you can select multiple files or a string like “00015190-00015191”. The counts (and number of frames) in the selected files will be added.
+Plot options (such as symbol type, lines, binning etc) can be found under the Settings tab. The default plot option is to display asymmetry i.e. the ratio of positron counts collected in
+the Forward (F) and Backward (B) detector arrays according to,
+
+.. math::
+
+   P_z(t) = A_0G_z(t) = \frac{F(t) - \alpha B(t)}{F(t) + \alpha B(t)}
+
+However, data collected only in the Forward, or Backward, detector banks can be viewed
+alone by adjusting the Group/Group Pair option. In addition, should data have been
+collected using differed timing periods, as one would for example during an RF experiment,
+the data collected during each separate time period can also be viewed separately (again for
+either the Forward and Backward detector arrays) by adjusting the period number.
+
+.. figure:: /images/PlotWindow.png
+
+   Fig. 2 The plot window. Launched when a data file is loaded
+
+When plotting data according to (1) the default alpha value is 1. An accurate alpha value
+can be determined using the **Guess Alpha** option found under the **Grouping Options** tab.
+Finally, the manner in which the raw data is presented can be adjusted using **Plot Type**.
+Asymmetry is the default option. However, both linear and log (y-axis) raw counts-per-microsecond plots can be generated.
+
+.. figure:: /images/MicrosecondPlot.png
+   :scale: 50 %
+
+   Fig. 3 Linear and log (y-axis) raw counts-per-microsecond plots
+
+**Summary**
+
++--------------------------------+-------------------------------------+
+| Input Field                    | Description                         |
++================================+=====================================+
+| Instrument                     | Select the instrument on which the  |
+|                                | experiment is being / was run       |
++--------------------------------+-------------------------------------+
+| Time Zero (us)                 | Time Zero in units of micro-seconds |
+|                                | (read from the NeXus data file)     |
++--------------------------------+-------------------------------------+
+| First Good Data (us)           | First Good Data in units of         |
+|                                | micro-seconds (read from the NeXus  |
+|                                | data file)                          |
++--------------------------------+-------------------------------------+
+| Load current run               | Load current run for the instrument |
+|                                | specified in Instrument             |
++--------------------------------+-------------------------------------+
+| Load run                       | Specify a run number or data file   |
+|                                | by typing a run number or use the   |
+|                                | Browse button to select             |
++--------------------------------+-------------------------------------+
+| Arrow Buttons                  | Clicking these buttons will open    |
+|                                | the next (or previous) run in a     |
+|                                | series of runs                      |
++--------------------------------+-------------------------------------+
+| Group / Group Pair             | Lists valid groups and group-pairs  |
+|                                | as defined in the Grouping Options  |
+|                                | tab                                 |
++--------------------------------+-------------------------------------+
+| Periods                        | For single period data only the 1st |
+|                                | Plot/Analyse Period drop down box   |
+|                                | is active. For multi period data    |
+|                                | all the drop boxes are enabled. Use |
+|                                | these additional fields to plot the |
+|                                | difference (or sum) between two     |
+|                                | timing periods                      |
++--------------------------------+-------------------------------------+
+| Plot type                      | Select the type of plot             |
++--------------------------------+-------------------------------------+
+| Run Information                | Information about the loaded        |
+|                                | measurement is printed to the       |
+|                                | screen                              |
++--------------------------------+-------------------------------------+
+| Manage Directories             | Define location(s) of data files    |
++--------------------------------+-------------------------------------+
+
+
+Grouping Options
+================
+
+
+The **Grouping Options** tab allows:
+
+* grouping files to be loaded, saved, modified or cleared
+* regrouped data to be plotted
+* alpha values to be determined from T20 measurements
+* raw data plotting options to be selected
+
+The **Grouping Options** options are shown below
+
+.. interface:: Muon Analysis
+   :widget: GroupingOptions
+
+Standard detector groupings are usually loaded when a data file is opened. For example, for
+the EMu spectrometer detectors 1 – 48 and 49 - 96 are automatically assigned to the
+forward and backward detector arrays. However, different detector grouping configurations can be entered 
+manually in the Group Table input fields. To enter a new value click on the desired input field to activate. Such user
+specific configurations can be saved and/or re-loaded.
+
+**NB** I left out a figure here - we can't automate specific settings!
+
+Once defined, these new user grouping options propagate through the Muon Analysis tabs.
+For example, in the Home tab, the options under Group/Group Pair are automatically
+updated to include user defined detector configurations.
+
+Finally, alpha can be determined for any given detector pairing (via the analysis of
+transverse field data) by clicking on Guess Alpha. Click on a specific Group Pair name to
+select it. The alpha value column is automatically updated. The value in the column is
+applied to all subsequent data reduction when asymmetry plots are desired.
+
+**Summary**
+
++-----------------------+-----------------------------------------------+
+| Input                 | Description                                   |
++=======================+===============================================+
+| Load Grouping File    | Opens a file browser window. Use it to select |
+|                       | a grouping file                               |
++-----------------------+-----------------------------------------------+
+| Save Grouping         | Opens a file browser window. Use it to save a |
+|                       | grouping file                                 |
++-----------------------+-----------------------------------------------+
+| Clear Grouping        | Clears group and pair tables                  |
++-----------------------+-----------------------------------------------+
+| Group Table           | Specifies a grouping. For a valid grouping a  |
+|                       | unique name must be provided and also a valid |
+|                       | Detector ID string. Examples of valid         |
+|                       | detector ID strings includes: “1,2-5,7-9,11”  |
+|                       | which specify spectra 1,2,3,4,5,7,8,9 and 11  |
++-----------------------+-----------------------------------------------+
+| Plot (below Group     | Plots the group highlighted most recently in  |
+| Table)                | the group table. The type of plot can be      |
+|                       | selected                                      |
++-----------------------+-----------------------------------------------+
+| Pair Table            | Specifies pairings of groups. A valid pair    |
+|                       | needs a unique pair name and associated alpha |
+|                       | value                                         |
++-----------------------+-----------------------------------------------+
+| Plot                  | Plots the pair highlighted most recently in   |
+|                       | the pair table. The type of plot can be       |
+|                       | selected                                      |
++-----------------------+-----------------------------------------------+
+| Guess Alpha           | Guess a new value for alpha for Group Pair    |
+|                       | highlighted / selected                        |
++-----------------------+-----------------------------------------------+
+
+Settings
+========
+
+The Settings tab allows the user to:
+
+* modify plot styles (lines, symbols etc)
+* change the time (x-axis properties) and y-axis scales
+* re-bin the data for clarity
+* adjust whether new plots are created or old plots are overwritten
+
+The Settings options are shown below
+
+.. interface:: Muon Analysis
+   :widget: Settings
+
+General plotting styles can be modified using the Data Plot Style options. Plot options
+include Line plots, Symbol plots or both. Data can also be re-binned and the time and y-axis
+adjusted.
+
+NB: when values are entered manually (for example the upper time limit in the Time Axis
+option) the entry needs to be followed by a carriage return for the value to be accepted.
+
+It is suggested that the user selects Auto-Update + Overwrite when performing data
+reduction and analysis. This option stops MantidPlot creating a new plot window every time
+a modification is made to the plot style. Should a new data file be loaded, however, the
+existing window will not be overwritten. Instead, a new plot window will be opened.
+
+NB: if a new data file is loaded then subsequent changes to the Settings options will apply to
+the newly created plot window.
+
+There is also an option to Hide Previous Graphs that ensures only the graph for the current
+data file is displayed.
+
+MantidPlot toolbar options (which are mostly redundant when using the Muon Analysis
+GUI) can be hidden by selecting Hide Toolbars.
+
+As an example, raw data and re-binned data is shown below.
+
+.. figure:: /images/RawBinned.png
+
+    Fig. 7 Raw and re-binned data set
+
+**Summary**
+
++-----------------------+-----------------------------------------------+
+| Input                 | Description                                   |
++=======================+===============================================+
+| Connect Points        | Dropbox with the options; line, line & symbol |
+|                       | and scatter. These will change how the data   |
+|                       | looks once plotted                            |
++-----------------------+-----------------------------------------------+
+| Time axis             | Plots the data from t = 0 or from the first   |
+|                       | good bin                                      |
++-----------------------+-----------------------------------------------+
+| Start (us)            | Plots the data from this user defined start   |
+|                       | value. This box is greyed out if the time     |
+|                       | axis is set to “Start at Time Zero”           |
++-----------------------+-----------------------------------------------+
+| Finish (us)           | Plots the data until this user defined end    |
+|                       | value                                         |
++-----------------------+-----------------------------------------------+
+| Y-axis (Autoscale)    | Uncheck Auto-scale to specify y-axis min and  |
+|                       | max limits                                    |
++-----------------------+-----------------------------------------------+
+| Minimum               | Defines the lower plot limit on the y-axis.   |
+|                       | Greyed out if Auto scale is checked           |
++-----------------------+-----------------------------------------------+
+| Maximum               | Defines the upper plot limit on the y-axis.   |
+|                       | Greyed out if Auto scale is checked           |
++-----------------------+-----------------------------------------------+
+| Show Error Bars       | Show error bars on the plot if the tick-box   |
+|                       | is selected                                   |
++-----------------------+-----------------------------------------------+
+| Rebin Data            | Default is None. If Fixed is selected then    |
+|                       | the Rebin Data step size input field is       |
+|                       | activated. The step size defines how many     |
+|                       | time bins the data is rebinned over           |
++-----------------------+-----------------------------------------------+
+| Plot Creation         | Dropbox with the options; overwrite,          |
+|                       | auto-update, overwrite + auto-update & none   |
++-----------------------+-----------------------------------------------+
+| Hide Toolbars         | Hides the MantidPlot toolbars. Useful on      |
+|                       | small screens                                 |
++-----------------------+-----------------------------------------------+
+| Hide Previous Graphs  | Ensures only the graph for the current data   |
+|                       | file is displayed                             |
++-----------------------+-----------------------------------------------+
+
+Data Analysis
+=============
+
+The Data Analysis tab allows the user to:
+
+* select functions to fit to the data
+* change fit ranges and parameters
+* fit data
+
+The Data Analysis tab options are shown below
+
+.. interface:: Muon Analysis
+   :widget: DataAnalysis
+
+MantidPlot comes with a number of pre-complied fitting functions. Further functions may
+be compiled and installed or, alternatively, user specific functions can be defined within the
+fitter. A number of fit functions have been programmed which are specific to the analysis of
+muon spectra. These are not currently included in MantidPlot but can be copied from
+
+.. code::
+
+    \\britannic\MuonTrainingCourse\Mantid Functions
+
+Their compilation is beyond the scope of this manual; however, detailed instructions for completing this for a 32-bit Windows
+platform can be found at http://www.mantidproject.org/Writing_a_Fit_Function.
+
+To select a function right click on Functions (in the Property column) and select Add Function.
+
+The MantidPlot - Fit dialogue box will appear from which one can select the function
+to use.
+
+To remove the function, right click on the function name and select Remove.
+
+Once the function has been selected it will appear in the Property column below Type. To
+examine a functions fit parameters, click on the small arrow beside the function name to
+expand the entry.
+
+Each fit function parameter can be adjusted manually. Click on the value shown to activate the input field.
+
+Once a fit function has been selected the plot window is modified, as shown below.
+First, default x-axis (time) limits for the fit are shown by two vertical blue lines. The user
+can adjust these limits by either i) clicking on the limit values shown in the Data Analysis
+window (under Data) and entering new values manually or ii) by using the mouse to
+independently slide each blue line to the required start and end position. Moving these fit
+limit lines automatically changes the limit values written beside Start (us) and End (us).
+
+In addition to the fit limits, two linked red markers appear. Adjusted using the mouse, these
+interdependent markers are linked to function parameters and provide and easy way of
+arriving at an initial ‘guess’.
+
+.. figure:: /images/PlotMarked.png
+
+    Fig. 11 Fit limit markers (blue) and frequency diagnostics (red)
+
+Once the user is happy with the initial fit parameters, clicking Fit will fit the chosen function
+to the data. The fit parameters will be updated. If several data sets have been loaded, the
+user can choose which one to fit by clicking on the filename beside Workspace (under Data)
+and scroll through a drop down list of available datasets. More information about
+workspaces can be found in the section Other Mantid Functions.
+
+.. figure:: /images/PlotFitted.png
+
+    Fig. 12 The result of fitting function ‘Muon_ExpDecayOsc’ to EMU0020884
+
+NB: when scrolling through a list of data sets to fit, select the entry with same name as that
+shown at the top of the data plot window. For example, to fit the data shown above one
+would select ‘EMU00020884; Group=long; Asym; #1’.
+
+Each fit parameter can be bound by certain fit limits (+/- 10% of its starting value, +/- 50% or
+a custom value), fixed at a specific user determined value or parameters can be tied
+together using some functional form.
+
+To apply constrains, right click on the parameter of interest.
+Functions with multiple components can be defined. These components can be combined through addition or multiplication.
+To create a fit function in which the various components are added simply add additional components as described above.
+
+**NB** Some figures and discussion left out for the same reason as above.
+
+To create a fit function in which the various components are multiplied
+first right click on Functions > Add Function and select ProductFunctionMW.
+Next, right click on f0-ProductFunctionMW and add the functions you want to multiply.
+Functions added under f0-ProductFunctionMW are multiplicative.
+
+NB: Fit functions with both additive and multiplicative components can be created.
+
+
+**Summary**
+
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Input Field | Description                                                                                                       |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Fit         | Allows the user to Fit the data or undo a fit                                                                     |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Display     | Allows the user to plot a guess based on the function(s) loaded.,This option can also be used to clear fit curves |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Setup       | Complex fit descriptions can be saved and restored. Alternitively,                                                |
+|             | all function information can be cleared. An option to search for                                                  |
+|             | peak is also available if appropriate                                                                             |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Functions   | Lets the user select the function(s) with which to fit the active data                                            |
+|             | set. Parameters can be adjusted or constrained as described.                                                      |
+|             | Complex functions can be saved or re-loaded                                                                       |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Data        | Allows fit limits to be set. Allows the user to choose which data set                                             |
+|             | to fit                                                                                                            |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+| Settings    | Allows the user to choose which minimisation algorithm the fitting                                                |
+|             | process uses. The default minimiser is the Levenberg–Marquardt                                                    |
+|             | algorithm. Difference plots can be requested (i.e. data minus fit)                                                |
+|             | and the fit can be applied to the raw data rather than any re-                                                    |
+|             | binned data shown in the plot window                                                                              |
++-------------+-------------------------------------------------------------------------------------------------------------------+
+
+
+Results Table
+=============
+
+
+The Results Table tab allows the user to:
+
+* create a result(s) table
+* select which instrument log values (temp, field etc) to write out alongside the fit parameters
+* choose to write out fit information from one or several data files
+
+The Results Table tab options are shown below:
+
+.. interface:: Muon Analysis
+   :widget: ResultsTable
+
+The above example will create a results table called "ResultsTable" in the main Mantid window in "Workspaces".
+From here the data can be explored and plotted using Mantid's built-in tools.
+
+* Exploring a workspace: https://www.mantidproject.org/MBC_The_Workspace_Matrix
+* Plotting 1-D data: https://www.mantidproject.org/MBC_Displaying_data
+
++-----------------------+----------------------------------------------------------------------------+
+| Input Field           | Description                                                                |
++-----------------------+----------------------------------------------------------------------------+
+| Log Values Table      | Allows the user to select which instrument log values to include in the    |
+|                       | results table                                                              |
++-----------------------+----------------------------------------------------------------------------+
+| Select/Deselect All   | If checked then all the log values are included in the results table. If   |
+|                       | unchecked then no log values are written but, instead, specific log values |
+|                       | can be selected by the user                                                |
++-----------------------+----------------------------------------------------------------------------+
+| Fitting Results Table | A group listing all the runs / data files for which fit parameters exist   |
++-----------------------+----------------------------------------------------------------------------+
+| Select/Deselect All   | If checked then the fit results from all the runs listed are selected and  |
+|                       | written to the results table                                               |
++-----------------------+----------------------------------------------------------------------------+
+| Name                  | A user defined name for the results table                                  |
++-----------------------+----------------------------------------------------------------------------+
+| Create Table          | Creates a results table which contains fit results and log values from all |
+|                       | the ‘checked’ options                                                      |
++-----------------------+----------------------------------------------------------------------------+
+
+

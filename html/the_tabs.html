@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Tabs</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="" href="index.html"/>
+        <link rel="next" title="Other Mantid Functions" href="other_mantid_functions.html"/>
+        <link rel="prev" title="Getting Started" href="getting_started.html"/>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MantidProject
+          
+
+          
+            
+            <img src="_static/Mantid_Logo_Transparent.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.12
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">The Tabs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#home">Home</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grouping-options">Grouping Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#results-table">Results Table</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other_mantid_functions.html">Other Mantid Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics_of_data_reduction.html">The Basics of Data Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MantidProject</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>The Tabs</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/the_tabs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-tabs">
+<span id="id1"></span><h1>The Tabs<a class="headerlink" href="#the-tabs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="home">
+<span id="index-0"></span><h2>Home<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>When launched, the Muon Analysis GUI defaults to the Home tab. This tab allows:</p>
+<ul class="simple">
+<li>data files to be loaded</li>
+<li>run information to be viewed</li>
+<li>detector groupings to be selected</li>
+<li>type of plot to be selected</li>
+</ul>
+<p>To load a file either: <strong>Browse</strong> or <strong>Load Current Run</strong> or simply type a run number (assuming you have defined the directory(ies) in which your files are stored)
+When typing a run number, or using the Load Current Run option, first select the desired instrument from the dropdown list. Regardless of the data input method, the Time Zero (us) and First Good Data (us)
+values are automatically updated. These values will have been determined by the instrument scientist during instrument calibration periods and are stored in the header block of the NeXus format raw data files that are saved once a measurement is finished. Once a data file has been successfully read, a new plot window will appear (e.g. Fig. 2)
+NB: when browsing for files you can select multiple files or a string like “00015190-00015191”. The counts (and number of frames) in the selected files will be added.
+Plot options (such as symbol type, lines, binning etc) can be found under the Settings tab. The default plot option is to display asymmetry i.e. the ratio of positron counts collected in
+the Forward (F) and Backward (B) detector arrays according to,</p>
+<div class="math">
+<p><span class="math">P_z(t) = A_0G_z(t) = \frac{F(t) - \alpha B(t)}{F(t) + \alpha B(t)}</span></p>
+</div><p>However, data collected only in the Forward, or Backward, detector banks can be viewed
+alone by adjusting the Group/Group Pair option. In addition, should data have been
+collected using differed timing periods, as one would for example during an RF experiment,
+the data collected during each separate time period can also be viewed separately (again for
+either the Forward and Backward detector arrays) by adjusting the period number.</p>
+<div class="figure" id="id2">
+<img alt="_images/PlotWindow.png" src="_images/PlotWindow.png" />
+<p class="caption"><span class="caption-text">Fig. 2 The plot window. Launched when a data file is loaded</span></p>
+</div>
+<p>When plotting data according to (1) the default alpha value is 1. An accurate alpha value
+can be determined using the <strong>Guess Alpha</strong> option found under the <strong>Grouping Options</strong> tab.
+Finally, the manner in which the raw data is presented can be adjusted using <strong>Plot Type</strong>.
+Asymmetry is the default option. However, both linear and log (y-axis) raw counts-per-microsecond plots can be generated.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/MicrosecondPlot.png"><img alt="_images/MicrosecondPlot.png" src="_images/MicrosecondPlot.png" /></a>
+<p class="caption"><span class="caption-text">Fig. 3 Linear and log (y-axis) raw counts-per-microsecond plots</span></p>
+</div>
+<p><strong>Summary</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Input Field</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Instrument</td>
+<td>Select the instrument on which the
+experiment is being / was run</td>
+</tr>
+<tr class="row-odd"><td>Time Zero (us)</td>
+<td>Time Zero in units of micro-seconds
+(read from the NeXus data file)</td>
+</tr>
+<tr class="row-even"><td>First Good Data (us)</td>
+<td>First Good Data in units of
+micro-seconds (read from the NeXus
+data file)</td>
+</tr>
+<tr class="row-odd"><td>Load current run</td>
+<td>Load current run for the instrument
+specified in Instrument</td>
+</tr>
+<tr class="row-even"><td>Load run</td>
+<td>Specify a run number or data file
+by typing a run number or use the
+Browse button to select</td>
+</tr>
+<tr class="row-odd"><td>Arrow Buttons</td>
+<td>Clicking these buttons will open
+the next (or previous) run in a
+series of runs</td>
+</tr>
+<tr class="row-even"><td>Group / Group Pair</td>
+<td>Lists valid groups and group-pairs
+as defined in the Grouping Options
+tab</td>
+</tr>
+<tr class="row-odd"><td>Periods</td>
+<td>For single period data only the 1st
+Plot/Analyse Period drop down box
+is active. For multi period data
+all the drop boxes are enabled. Use
+these additional fields to plot the
+difference (or sum) between two
+timing periods</td>
+</tr>
+<tr class="row-even"><td>Plot type</td>
+<td>Select the type of plot</td>
+</tr>
+<tr class="row-odd"><td>Run Information</td>
+<td>Information about the loaded
+measurement is printed to the
+screen</td>
+</tr>
+<tr class="row-even"><td>Manage Directories</td>
+<td>Define location(s) of data files</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="grouping-options">
+<h2>Grouping Options<a class="headerlink" href="#grouping-options" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Grouping Options</strong> tab allows:</p>
+<ul class="simple">
+<li>grouping files to be loaded, saved, modified or cleared</li>
+<li>regrouped data to be plotted</li>
+<li>alpha values to be determined from T20 measurements</li>
+<li>raw data plotting options to be selected</li>
+</ul>
+<p>The <strong>Grouping Options</strong> options are shown below</p>
+<div class="figure">
+<a class="screenshot reference internal image-reference" href="_images/Muon_Analysis_GroupingOptions_widget.png"><img alt="_images/Muon_Analysis_GroupingOptions_widget.png" class="screenshot" src="_images/Muon_Analysis_GroupingOptions_widget.png" style="width: 419px;" /></a>
+</div>
+<p>Standard detector groupings are usually loaded when a data file is opened. For example, for
+the EMu spectrometer detectors 1 – 48 and 49 - 96 are automatically assigned to the
+forward and backward detector arrays. However, different detector grouping configurations can be entered
+manually in the Group Table input fields. To enter a new value click on the desired input field to activate. Such user
+specific configurations can be saved and/or re-loaded.</p>
+<p><strong>NB</strong> I left out a figure here - we can&#8217;t automate specific settings!</p>
+<p>Once defined, these new user grouping options propagate through the Muon Analysis tabs.
+For example, in the Home tab, the options under Group/Group Pair are automatically
+updated to include user defined detector configurations.</p>
+<p>Finally, alpha can be determined for any given detector pairing (via the analysis of
+transverse field data) by clicking on Guess Alpha. Click on a specific Group Pair name to
+select it. The alpha value column is automatically updated. The value in the column is
+applied to all subsequent data reduction when asymmetry plots are desired.</p>
+<p><strong>Summary</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Input</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Load Grouping File</td>
+<td>Opens a file browser window. Use it to select
+a grouping file</td>
+</tr>
+<tr class="row-odd"><td>Save Grouping</td>
+<td>Opens a file browser window. Use it to save a
+grouping file</td>
+</tr>
+<tr class="row-even"><td>Clear Grouping</td>
+<td>Clears group and pair tables</td>
+</tr>
+<tr class="row-odd"><td>Group Table</td>
+<td>Specifies a grouping. For a valid grouping a
+unique name must be provided and also a valid
+Detector ID string. Examples of valid
+detector ID strings includes: “1,2-5,7-9,11”
+which specify spectra 1,2,3,4,5,7,8,9 and 11</td>
+</tr>
+<tr class="row-even"><td>Plot (below Group
+Table)</td>
+<td>Plots the group highlighted most recently in
+the group table. The type of plot can be
+selected</td>
+</tr>
+<tr class="row-odd"><td>Pair Table</td>
+<td>Specifies pairings of groups. A valid pair
+needs a unique pair name and associated alpha
+value</td>
+</tr>
+<tr class="row-even"><td>Plot</td>
+<td>Plots the pair highlighted most recently in
+the pair table. The type of plot can be
+selected</td>
+</tr>
+<tr class="row-odd"><td>Guess Alpha</td>
+<td>Guess a new value for alpha for Group Pair
+highlighted / selected</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>The Settings tab allows the user to:</p>
+<ul class="simple">
+<li>modify plot styles (lines, symbols etc)</li>
+<li>change the time (x-axis properties) and y-axis scales</li>
+<li>re-bin the data for clarity</li>
+<li>adjust whether new plots are created or old plots are overwritten</li>
+</ul>
+<p>The Settings options are shown below</p>
+<div class="figure">
+<a class="screenshot reference internal image-reference" href="_images/Muon_Analysis_Settings_widget.png"><img alt="_images/Muon_Analysis_Settings_widget.png" class="screenshot" src="_images/Muon_Analysis_Settings_widget.png" style="width: 777px;" /></a>
+</div>
+<p>General plotting styles can be modified using the Data Plot Style options. Plot options
+include Line plots, Symbol plots or both. Data can also be re-binned and the time and y-axis
+adjusted.</p>
+<p>NB: when values are entered manually (for example the upper time limit in the Time Axis
+option) the entry needs to be followed by a carriage return for the value to be accepted.</p>
+<p>It is suggested that the user selects Auto-Update + Overwrite when performing data
+reduction and analysis. This option stops MantidPlot creating a new plot window every time
+a modification is made to the plot style. Should a new data file be loaded, however, the
+existing window will not be overwritten. Instead, a new plot window will be opened.</p>
+<p>NB: if a new data file is loaded then subsequent changes to the Settings options will apply to
+the newly created plot window.</p>
+<p>There is also an option to Hide Previous Graphs that ensures only the graph for the current
+data file is displayed.</p>
+<p>MantidPlot toolbar options (which are mostly redundant when using the Muon Analysis
+GUI) can be hidden by selecting Hide Toolbars.</p>
+<p>As an example, raw data and re-binned data is shown below.</p>
+<div class="figure" id="id4">
+<img alt="_images/RawBinned.png" src="_images/RawBinned.png" />
+<p class="caption"><span class="caption-text">Fig. 7 Raw and re-binned data set</span></p>
+</div>
+<p><strong>Summary</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Input</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Connect Points</td>
+<td>Dropbox with the options; line, line &amp; symbol
+and scatter. These will change how the data
+looks once plotted</td>
+</tr>
+<tr class="row-odd"><td>Time axis</td>
+<td>Plots the data from t = 0 or from the first
+good bin</td>
+</tr>
+<tr class="row-even"><td>Start (us)</td>
+<td>Plots the data from this user defined start
+value. This box is greyed out if the time
+axis is set to “Start at Time Zero”</td>
+</tr>
+<tr class="row-odd"><td>Finish (us)</td>
+<td>Plots the data until this user defined end
+value</td>
+</tr>
+<tr class="row-even"><td>Y-axis (Autoscale)</td>
+<td>Uncheck Auto-scale to specify y-axis min and
+max limits</td>
+</tr>
+<tr class="row-odd"><td>Minimum</td>
+<td>Defines the lower plot limit on the y-axis.
+Greyed out if Auto scale is checked</td>
+</tr>
+<tr class="row-even"><td>Maximum</td>
+<td>Defines the upper plot limit on the y-axis.
+Greyed out if Auto scale is checked</td>
+</tr>
+<tr class="row-odd"><td>Show Error Bars</td>
+<td>Show error bars on the plot if the tick-box
+is selected</td>
+</tr>
+<tr class="row-even"><td>Rebin Data</td>
+<td>Default is None. If Fixed is selected then
+the Rebin Data step size input field is
+activated. The step size defines how many
+time bins the data is rebinned over</td>
+</tr>
+<tr class="row-odd"><td>Plot Creation</td>
+<td>Dropbox with the options; overwrite,
+auto-update, overwrite + auto-update &amp; none</td>
+</tr>
+<tr class="row-even"><td>Hide Toolbars</td>
+<td>Hides the MantidPlot toolbars. Useful on
+small screens</td>
+</tr>
+<tr class="row-odd"><td>Hide Previous Graphs</td>
+<td>Ensures only the graph for the current data
+file is displayed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="data-analysis">
+<h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The Data Analysis tab allows the user to:</p>
+<ul class="simple">
+<li>select functions to fit to the data</li>
+<li>change fit ranges and parameters</li>
+<li>fit data</li>
+</ul>
+<p>The Data Analysis tab options are shown below</p>
+<div class="figure">
+<a class="screenshot reference internal image-reference" href="_images/Muon_Analysis_DataAnalysis_widget.png"><img alt="_images/Muon_Analysis_DataAnalysis_widget.png" class="screenshot" src="_images/Muon_Analysis_DataAnalysis_widget.png" style="width: 274px;" /></a>
+</div>
+<p>MantidPlot comes with a number of pre-complied fitting functions. Further functions may
+be compiled and installed or, alternatively, user specific functions can be defined within the
+fitter. A number of fit functions have been programmed which are specific to the analysis of
+muon spectra. These are not currently included in MantidPlot but can be copied from</p>
+<div class="code highlight-python"><div class="highlight"><pre>\\britannic\MuonTrainingCourse\Mantid Functions
+</pre></div>
+</div>
+<p>Their compilation is beyond the scope of this manual; however, detailed instructions for completing this for a 32-bit Windows
+platform can be found at <a class="reference external" href="http://www.mantidproject.org/Writing_a_Fit_Function">http://www.mantidproject.org/Writing_a_Fit_Function</a>.</p>
+<p>To select a function right click on Functions (in the Property column) and select Add Function.</p>
+<p>The MantidPlot - Fit dialogue box will appear from which one can select the function
+to use.</p>
+<p>To remove the function, right click on the function name and select Remove.</p>
+<p>Once the function has been selected it will appear in the Property column below Type. To
+examine a functions fit parameters, click on the small arrow beside the function name to
+expand the entry.</p>
+<p>Each fit function parameter can be adjusted manually. Click on the value shown to activate the input field.</p>
+<p>Once a fit function has been selected the plot window is modified, as shown below.
+First, default x-axis (time) limits for the fit are shown by two vertical blue lines. The user
+can adjust these limits by either i) clicking on the limit values shown in the Data Analysis
+window (under Data) and entering new values manually or ii) by using the mouse to
+independently slide each blue line to the required start and end position. Moving these fit
+limit lines automatically changes the limit values written beside Start (us) and End (us).</p>
+<p>In addition to the fit limits, two linked red markers appear. Adjusted using the mouse, these
+interdependent markers are linked to function parameters and provide and easy way of
+arriving at an initial ‘guess’.</p>
+<div class="figure" id="id5">
+<img alt="_images/PlotMarked.png" src="_images/PlotMarked.png" />
+<p class="caption"><span class="caption-text">Fig. 11 Fit limit markers (blue) and frequency diagnostics (red)</span></p>
+</div>
+<p>Once the user is happy with the initial fit parameters, clicking Fit will fit the chosen function
+to the data. The fit parameters will be updated. If several data sets have been loaded, the
+user can choose which one to fit by clicking on the filename beside Workspace (under Data)
+and scroll through a drop down list of available datasets. More information about
+workspaces can be found in the section Other Mantid Functions.</p>
+<div class="figure" id="id6">
+<img alt="_images/PlotFitted.png" src="_images/PlotFitted.png" />
+<p class="caption"><span class="caption-text">Fig. 12 The result of fitting function ‘Muon_ExpDecayOsc’ to EMU0020884</span></p>
+</div>
+<p>NB: when scrolling through a list of data sets to fit, select the entry with same name as that
+shown at the top of the data plot window. For example, to fit the data shown above one
+would select ‘EMU00020884; Group=long; Asym; #1’.</p>
+<p>Each fit parameter can be bound by certain fit limits (+/- 10% of its starting value, +/- 50% or
+a custom value), fixed at a specific user determined value or parameters can be tied
+together using some functional form.</p>
+<p>To apply constrains, right click on the parameter of interest.
+Functions with multiple components can be defined. These components can be combined through addition or multiplication.
+To create a fit function in which the various components are added simply add additional components as described above.</p>
+<p><strong>NB</strong> Some figures and discussion left out for the same reason as above.</p>
+<p>To create a fit function in which the various components are multiplied
+first right click on Functions &gt; Add Function and select ProductFunctionMW.
+Next, right click on f0-ProductFunctionMW and add the functions you want to multiply.
+Functions added under f0-ProductFunctionMW are multiplicative.</p>
+<p>NB: Fit functions with both additive and multiplicative components can be created.</p>
+<p><strong>Summary</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input Field</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>Fit</td>
+<td>Allows the user to Fit the data or undo a fit</td>
+</tr>
+<tr class="row-odd"><td>Display</td>
+<td>Allows the user to plot a guess based on the function(s) loaded.,This option can also be used to clear fit curves</td>
+</tr>
+<tr class="row-even"><td>Setup</td>
+<td>Complex fit descriptions can be saved and restored. Alternitively,
+all function information can be cleared. An option to search for
+peak is also available if appropriate</td>
+</tr>
+<tr class="row-odd"><td>Functions</td>
+<td>Lets the user select the function(s) with which to fit the active data
+set. Parameters can be adjusted or constrained as described.
+Complex functions can be saved or re-loaded</td>
+</tr>
+<tr class="row-even"><td>Data</td>
+<td>Allows fit limits to be set. Allows the user to choose which data set
+to fit</td>
+</tr>
+<tr class="row-odd"><td>Settings</td>
+<td>Allows the user to choose which minimisation algorithm the fitting
+process uses. The default minimiser is the Levenberg–Marquardt
+algorithm. Difference plots can be requested (i.e. data minus fit)
+and the fit can be applied to the raw data rather than any re-
+binned data shown in the plot window</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="results-table">
+<h2>Results Table<a class="headerlink" href="#results-table" title="Permalink to this headline">¶</a></h2>
+<p>The Results Table tab allows the user to:</p>
+<ul class="simple">
+<li>create a result(s) table</li>
+<li>select which instrument log values (temp, field etc) to write out alongside the fit parameters</li>
+<li>choose to write out fit information from one or several data files</li>
+</ul>
+<p>The Results Table tab options are shown below:</p>
+<div class="figure">
+<a class="screenshot reference internal image-reference" href="_images/Muon_Analysis_ResultsTable_widget.png"><img alt="_images/Muon_Analysis_ResultsTable_widget.png" class="screenshot" src="_images/Muon_Analysis_ResultsTable_widget.png" style="width: 541px;" /></a>
+</div>
+<p>The above example will create a results table called &#8220;ResultsTable&#8221; in the main Mantid window in &#8220;Workspaces&#8221;.
+From here the data can be explored and plotted using Mantid&#8217;s built-in tools.</p>
+<ul class="simple">
+<li>Exploring a workspace: <a class="reference external" href="https://www.mantidproject.org/MBC_The_Workspace_Matrix">https://www.mantidproject.org/MBC_The_Workspace_Matrix</a></li>
+<li>Plotting 1-D data: <a class="reference external" href="https://www.mantidproject.org/MBC_Displaying_data">https://www.mantidproject.org/MBC_Displaying_data</a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input Field</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td>Log Values Table</td>
+<td>Allows the user to select which instrument log values to include in the
+results table</td>
+</tr>
+<tr class="row-odd"><td>Select/Deselect All</td>
+<td>If checked then all the log values are included in the results table. If
+unchecked then no log values are written but, instead, specific log values
+can be selected by the user</td>
+</tr>
+<tr class="row-even"><td>Fitting Results Table</td>
+<td>A group listing all the runs / data files for which fit parameters exist</td>
+</tr>
+<tr class="row-odd"><td>Select/Deselect All</td>
+<td>If checked then the fit results from all the runs listed are selected and
+written to the results table</td>
+</tr>
+<tr class="row-even"><td>Name</td>
+<td>A user defined name for the results table</td>
+</tr>
+<tr class="row-odd"><td>Create Table</td>
+<td>Creates a results table which contains fit results and log values from all
+the ‘checked’ options</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="other_mantid_functions.html" class="btn btn-neutral float-right" title="Other Mantid Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting_started.html" class="btn btn-neutral" title="Getting Started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      Last updated on 2018-08-08.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.12.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+      Last updated on 2018-08-08.<br/>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
